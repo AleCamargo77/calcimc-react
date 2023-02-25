@@ -1,0 +1,60 @@
+#containerResult {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-width: 400px;
+  min-height: 400px;
+  background-color: var(--var-bgd-secondary);
+  padding: 2rem;
+}
+
+#numberImc {
+  font-size: 2.4rem;
+  margin-bottom: 0.6rem;
+}
+
+#infoImc {
+  font-size: 1.4rem;
+  color: var(--var-color-grey);
+}
+
+#containerResult h3 {
+  margin-top: 1rem;
+  color: var(--var-color-white);
+}
+
+.resultClassification {
+  margin: 1.5rem 0;
+  font-size: 0.8rem;
+}
+
+.tableHeader,
+.tableData {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--var-color-grey);
+}
+
+.tableHeader h4,
+.tableData p {
+  flex: 1;
+  font-size: 0.9rem;
+}
+
+#back {
+  align-self: center;
+  text-transform: uppercase;
+  padding: 1rem 1.5rem;
+  border: none;
+  background-color: var(--var-bgd-button);
+  color: var(--var-color-white);
+  cursor: pointer;
+  /* flex: 1; */
+  opacity: 0.6;
+}
+
+#back:hover {
+  opacity: 1;
+}
