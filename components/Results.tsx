@@ -1,18 +1,19 @@
 import styles from "../src/styles/Results.module.css";
+import Inputs from "./Inputs";
 
-export default function Results() {
+export default function Results(props: any) {
   return (
     <div id={styles.containerResult} className={styles.hide}>
       <p id={styles.numberImc}>
-        Seu IMC: <span></span>
+        Seu IMC: <span>{props.teste}</span>
       </p>
       <p id={styles.infoImc}>
-        Classificação atual: <span></span>
+        Classificação atual: <span>{props.classification}</span>
       </p>
       <h3>Confira as classificações:</h3>
       <div id={styles.resultClassification}>
         <div className={styles.tableHeader}>
-          <h4>IMC</h4>
+          <h4>IMC: </h4>
           <h4>Classificação</h4>
           <h4>Obesidade</h4>
         </div>

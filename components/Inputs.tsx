@@ -3,10 +3,12 @@ import data from "../src/pages/data.js";
 import { useState } from "react";
 import { validDigits } from "../functions/functions";
 import { calcImc } from "../functions/functions";
+import Results from "./Results";
 
-export default function Inputs() {
+export default function Inputs(props: any) {
   const [valueHeight, setValueHeight] = useState("");
   const [valueWeight, setValueWeight] = useState("");
+  const [result, setResult] = useState("");
   const [classification, setClassification] = useState(data);
 
   // console.log(classification);
@@ -19,7 +21,8 @@ export default function Inputs() {
     setValueWeight(validDigits(e.target.value));
   }
 
-  function calcBtn() {
+  function calcBtn(ev: any) {
+    ev.preventDefault();
     const height = +valueHeight.replace(",", ".");
     const weight = +valueWeight.replace(",", ".");
 
@@ -27,11 +30,14 @@ export default function Inputs() {
       return;
     }
 
-    const imc: any = calcImc(weight, height);
+    const imc = calcImc(weight, height);
+    const imcAsNumber: number = parseInt(imc);
+
+    setResult(`Seu IMC é ${imcAsNumber}`);
 
     // let info;
 
-    // classification.forEach((item) => {
+    // classification.map((item) => {
     //   if (imc > item.min && imc < item.max) {
     //     info = item.info;
     //   }
@@ -39,10 +45,12 @@ export default function Inputs() {
 
     // if (!info) return;
 
-    alert(imc);
+    // console.log(imc);
+    // console.log(info);
   }
 
-  function clearValues() {
+  function clearValues(ev: any) {
+    ev.preventDefault();
     setValueHeight("");
     setValueWeight("");
   }
@@ -76,15 +84,16 @@ export default function Inputs() {
               />
             </div>
             <div className={styles.btnControl}>
-              <button onClick={calcBtn} id={styles.calc}>
+              <button type="submit" onClick={calcBtn} id={styles.calc}>
                 Calcular
               </button>
-              <button onClick={clearValues} id={styles.clear}>
+              <button type="submit" onClick={clearValues} id={styles.clear}>
                 Limpar
               </button>
             </div>
           </div>
         </form>
+        <h2>{result}</h2>
       </div>
     </div>
   );

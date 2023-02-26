@@ -9,8 +9,10 @@ export default function Home() {
     <>
       <div>
         <Inputs />
-        {/* <Results /> */}
       </div>
+      {/* <div>
+        <Results teste="15" classification="Normal" />
+      </div> */}
     </>
   );
 }
