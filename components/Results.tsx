@@ -1,11 +1,13 @@
+// import { useState } from "react";
 import styles from "../src/styles/Results.module.css";
 import Inputs from "./Inputs";
+// import { calcImc } from "../functions/functions";
 
 export default function Results(props: any) {
   return (
     <div id={styles.containerResult} className={styles.hide}>
       <p id={styles.numberImc}>
-        Seu IMC: <span>{props.teste}</span>
+        Seu IMC: <span>{props.teste} </span>
       </p>
       <p id={styles.infoImc}>
         Classificação atual: <span>{props.classification}</span>

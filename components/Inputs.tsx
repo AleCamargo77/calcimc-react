@@ -5,11 +5,12 @@ import { validDigits } from "../functions/functions";
 import { calcImc } from "../functions/functions";
 import Results from "./Results";
 
-export default function Inputs(props: any) {
+export default function Inputs() {
   const [valueHeight, setValueHeight] = useState("");
   const [valueWeight, setValueWeight] = useState("");
   const [result, setResult] = useState("");
   const [classification, setClassification] = useState(data);
+  const [isSubmited, setSubmited] = useState<boolean>(false);
 
   // console.log(classification);
 
@@ -21,7 +22,15 @@ export default function Inputs(props: any) {
     setValueWeight(validDigits(e.target.value));
   }
 
-  function calcBtn(ev: any) {
+  if (isSubmited) {
+    return (
+      <div>
+        <Results />
+      </div>
+    );
+  }
+
+  function calcBtn(ev: React.FormEvent) {
     ev.preventDefault();
     const height = +valueHeight.replace(",", ".");
     const weight = +valueWeight.replace(",", ".");
@@ -31,11 +40,17 @@ export default function Inputs(props: any) {
     }
 
     const imc = calcImc(weight, height);
-    const imcAsNumber: number = parseInt(imc);
+    const imcAsNumber: number = +imc;
 
-    setResult(`Seu IMC é ${imcAsNumber}`);
+    setResult(`Seu IMC é ${imcAsNumber.toFixed(2)}`);
+    console.log(result);
+    console.log(imc);
+    console.log(imcAsNumber);
 
-    // let info;
+    // <Results teste="14" />;
+
+    setSubmited(true);
+    let info;
 
     // classification.map((item) => {
     //   if (imc > item.min && imc < item.max) {
@@ -43,10 +58,9 @@ export default function Inputs(props: any) {
     //   }
     // });
 
-    // if (!info) return;
+    if (!info) return;
 
-    // console.log(imc);
-    // console.log(info);
+    console.log(info);
   }
 
   function clearValues(ev: any) {
@@ -93,7 +107,7 @@ export default function Inputs(props: any) {
             </div>
           </div>
         </form>
-        <h2>{result}</h2>
+        {/* <h2>{result}</h2> */}
       </div>
     </div>
   );
