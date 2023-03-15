@@ -58,3 +58,15 @@
 #back:hover {
   opacity: 1;
 }
+
+.yellow {
+  color: #dbce12;
+}
+
+.red {
+  color: #db1912;
+}
+
+.green {
+  color: #12db34;
+}

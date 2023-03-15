@@ -29,19 +29,18 @@ export default function Inputs() {
     const imc = +calcImc(weight, height);
     // const imcAsNumber: number = +imc;
 
-    let info;
+    let infos;
     let level;
     classification.map((item) => {
+      const { classific, info, obesity } = item;
       if (imc > item.min && imc < item.max) {
-        info = item.info;
+        infos = info;
       }
-      level = item.classification;
-      console.log(item.classification);
     });
 
     return (
       <div>
-        <Results resultImc={imc} currentRating={info} level={level} />
+        <Results resultImc={imc} currentRating={infos} />
       </div>
     );
   }
