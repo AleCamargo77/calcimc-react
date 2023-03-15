@@ -23,34 +23,47 @@ export default function Inputs() {
   }
 
   if (isSubmited) {
+    const height = +valueHeight.replace(",", ".");
+    const weight = +valueWeight.replace(",", ".");
+
+    const imc = +calcImc(weight, height);
+    // const imcAsNumber: number = +imc;
+
+    let info;
+    let level;
+    classification.map((item) => {
+      if (imc > item.min && imc < item.max) {
+        info = item.info;
+      }
+      level = item.classification;
+      console.log(item.classification);
+    });
+
     return (
       <div>
-        <Results />
+        <Results resultImc={imc} currentRating={info} level={level} />
       </div>
     );
   }
 
   function calcBtn(ev: React.FormEvent) {
     ev.preventDefault();
-    const height = +valueHeight.replace(",", ".");
-    const weight = +valueWeight.replace(",", ".");
+    // const height = +valueHeight.replace(",", ".");
+    // const weight = +valueWeight.replace(",", ".");
 
-    if (!height || !weight) {
-      return;
-    }
+    // if (!height || !weight) {
+    //   return;
+    // }
 
-    const imc = calcImc(weight, height);
-    const imcAsNumber: number = +imc;
+    // const imc = +calcImc(weight, height);
+    // const imcAsNumber: number = +imc;
 
-    setResult(`Seu IMC é ${imcAsNumber.toFixed(2)}`);
-    console.log(result);
-    console.log(imc);
-    console.log(imcAsNumber);
+    // setResult(`Seu IMC é ${imcAsNumber.toFixed(2)}`);
+    // console.log(result);
+    // console.log(imc);
+    // console.log(imcAsNumber);
 
-    // <Results teste="14" />;
-
-    setSubmited(true);
-    let info;
+    // let info;
 
     // classification.map((item) => {
     //   if (imc > item.min && imc < item.max) {
@@ -58,9 +71,22 @@ export default function Inputs() {
     //   }
     // });
 
-    if (!info) return;
+    // if (!info) return;
 
-    console.log(info);
+    if (isSubmited) {
+      const height = +valueHeight.replace(",", ".");
+      const weight = +valueWeight.replace(",", ".");
+
+      if (!height || !weight) {
+        return;
+      }
+
+      const imc = +calcImc(weight, height);
+      const imcAsNumber: number = +imc;
+    }
+    setSubmited(true);
+
+    // console.log(info);
   }
 
   function clearValues(ev: any) {

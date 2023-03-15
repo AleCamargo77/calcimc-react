@@ -7,15 +7,15 @@ export default function Results(props: any) {
   return (
     <div id={styles.containerResult} className={styles.hide}>
       <p id={styles.numberImc}>
-        Seu IMC: <span>{props.teste} </span>
+        Seu IMC: <span>{props.resultImc} </span>
       </p>
       <p id={styles.infoImc}>
-        Classificação atual: <span>{props.classification}</span>
+        Classificação atual: <span>{props.currentRating}</span>
       </p>
       <h3>Confira as classificações:</h3>
       <div id={styles.resultClassification}>
         <div className={styles.tableHeader}>
-          <h4>IMC: </h4>
+          <h4>IMC: {props.level} </h4>
           <h4>Classificação</h4>
           <h4>Obesidade</h4>
         </div>
