@@ -1,4 +1,4 @@
-export default [
+const data = [
   {
     min: 0,
     max: 18.4,
@@ -35,3 +35,5 @@ export default [
     obesity: "III",
   },
 ];
+
+export default data;

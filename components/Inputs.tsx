@@ -1,5 +1,5 @@
 import styles from "../src/styles/Inputs.module.css";
-import data from "../src/pages/data.js";
+import data from "../public/data";
 import { useState } from "react";
 import { validDigits } from "../functions/functions";
 import { calcImc } from "../functions/functions";
