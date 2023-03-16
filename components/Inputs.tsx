@@ -19,8 +19,6 @@ export default function Inputs() {
   function handleWeightChange(e: any) {
     setValueWeight(validDigits(e.target.value));
   }
-  // const height = +valueHeight.replace(",", ".");
-  // const weight = +valueWeight.replace(",", ".");
 
   if (isSubmited) {
     const height = +valueHeight.replace(",", ".");
