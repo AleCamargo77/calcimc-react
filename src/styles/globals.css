@@ -7,8 +7,8 @@
 }
 
 :root {
-  --var-bgd-primary: #3fbecf;
-  --var-bgd-secondary: #437a82;
+  --var-bgd-primary: #8ebfc5;
+  --var-bgd-secondary: #3b5a5f;
   --var-bgd-button: tomato;
   --var-color-white: #fff;
   --var-color-grey: #ccc;
@@ -24,4 +24,16 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
+}
+
+.green {
+  color: #12db34;
+}
+
+.red {
+  color: var(--var-color-red);
+}
+
+.yellow {
+  color: var(--var-color-yellow);
 }

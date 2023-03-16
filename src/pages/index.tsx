@@ -10,8 +10,6 @@ export default function Home() {
       <div>
         <Inputs />
       </div>
-
-      <div>{/* <Results teste={2 * 5} classification="Normal" /> */}</div>
     </>
   );
 }

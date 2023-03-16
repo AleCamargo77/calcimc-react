@@ -47,30 +47,6 @@ export default function Inputs() {
 
   function calcBtn(ev: React.FormEvent) {
     ev.preventDefault();
-    // const height = +valueHeight.replace(",", ".");
-    // const weight = +valueWeight.replace(",", ".");
-
-    // if (!height || !weight) {
-    //   return;
-    // }
-
-    // const imc = +calcImc(weight, height);
-    // const imcAsNumber: number = +imc;
-
-    // setResult(`Seu IMC é ${imcAsNumber.toFixed(2)}`);
-    // console.log(result);
-    // console.log(imc);
-    // console.log(imcAsNumber);
-
-    // let info;
-
-    // classification.map((item) => {
-    //   if (imc > item.min && imc < item.max) {
-    //     info = item.info;
-    //   }
-    // });
-
-    // if (!info) return;
 
     if (isSubmited) {
       const height = +valueHeight.replace(",", ".");
@@ -84,8 +60,6 @@ export default function Inputs() {
       const imcAsNumber: number = +imc;
     }
     setSubmited(true);
-
-    // console.log(info);
   }
 
   function clearValues(ev: any) {
