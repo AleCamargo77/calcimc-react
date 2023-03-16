@@ -12,8 +12,6 @@ export default function Inputs() {
   const [classification, setClassification] = useState(data);
   const [isSubmited, setSubmited] = useState<boolean>(false);
 
-  // console.log(classification);
-
   function handleHeightChange(e: any) {
     setValueHeight(validDigits(e.target.value));
   }
@@ -21,18 +19,19 @@ export default function Inputs() {
   function handleWeightChange(e: any) {
     setValueWeight(validDigits(e.target.value));
   }
+  // const height = +valueHeight.replace(",", ".");
+  // const weight = +valueWeight.replace(",", ".");
 
   if (isSubmited) {
     const height = +valueHeight.replace(",", ".");
     const weight = +valueWeight.replace(",", ".");
 
     const imc = +calcImc(weight, height);
-    // const imcAsNumber: number = +imc;
 
     let infos;
     let level;
     classification.map((item) => {
-      const { classific, info, obesity } = item;
+      const { classific, info } = item;
       if (imc > item.min && imc < item.max) {
         infos = info;
       }
@@ -48,14 +47,12 @@ export default function Inputs() {
   function calcBtn(ev: React.FormEvent) {
     ev.preventDefault();
 
+    const height = +valueHeight.replace(",", ".");
+    const weight = +valueWeight.replace(",", ".");
+    if (!height || !weight) {
+      return;
+    }
     if (isSubmited) {
-      const height = +valueHeight.replace(",", ".");
-      const weight = +valueWeight.replace(",", ".");
-
-      if (!height || !weight) {
-        return;
-      }
-
       const imc = +calcImc(weight, height);
       const imcAsNumber: number = +imc;
     }
@@ -106,7 +103,6 @@ export default function Inputs() {
             </div>
           </div>
         </form>
-        {/* <h2>{result}</h2> */}
       </div>
     </div>
   );
